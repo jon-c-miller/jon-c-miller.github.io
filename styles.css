@@ -111,7 +111,7 @@ ul {
 
 /* add a line fading in effect over nav entries */
 .nav-list li {
-  border-top: 2px solid black;
+  border-top: 2px solid transparent;
   margin-bottom: 2px;
   transition: border 0.3s ease-in-out;
 }
@@ -269,7 +269,7 @@ ul {
 }
 
 
-/* footer */
+/* -- footer */
 
 footer {
   font-weight: 300;
