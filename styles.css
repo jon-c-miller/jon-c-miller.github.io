@@ -1,8 +1,9 @@
 :root {
-  --color-background: rgb(35, 15, 35);
-  --color-nav-border: rgb(120, 50, 120);
-  --color-nav-text: rgb(200, 90, 200);
-  --color-highlight: pink;
+  --color-background: rgb(20, 5, 5);
+  --color-nav-border: rgb(31, 81, 97);
+  --color-main-text: rgb(255, 160, 100);
+  --color-highlight: rgb(255, 50, 50);
+  --color-link-text: rgb(255, 125, 25);
 }
 
 /* -- base elements */
@@ -21,7 +22,7 @@
 
 a {
   text-decoration: none;
-  color: yellow;
+  color: var(--color-link-text);
 }
 
 body {
@@ -49,7 +50,7 @@ h2 {
 html {
   box-sizing: border-box;
   background-color: var(--color-background);
-  color: white;
+  color: var(--color-main-text);
   scroll-behavior: smooth;
   /* standardizing font size for consistency and easy measurements (1rem default of 16px becomes 10px)
      - rem is based on the font size defined in html, or defaults to 16
@@ -100,7 +101,7 @@ ul {
   display: block;
   font-size: 2.2rem;
   padding: 2rem;
-  color: var(--color-nav-text);
+  color: var(--color-main-text);
   transition: all 0.3s ease-in-out;
 }
 /* add a hover push down effect to nav text */
@@ -128,8 +129,8 @@ ul {
   align-items: center;
   width: 100%;
   height: 100vh;
-  background-color: #000;
-  background-image: linear-gradient(50deg, #3a3d40 0%, var(--color-background) 100%);
+  background-color: black;
+  background-image: linear-gradient(160deg, rgb(100, 25, 40) 0%, var(--color-background) 100%);
 }
 
 .about-section > p {
@@ -161,23 +162,23 @@ ul {
 .projects-section-header {
   max-width: 600px;
   margin: 0 auto 6rem auto;
-  border-bottom: 0.2rem solid white;
+  border-bottom: 2px ridge var(--color-highlight);
 }
 
 .project {
   background: black;
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
   border-radius: 2px;
-  border: 2px solid teal;
+  border: 2px solid var(--color-nav-border);
 }
 
 /* give project text brackets a color transition on hover */
 .project:hover .color-transition {
-  color: pink;
+  color: var(--color-highlight);
 }
 
 .color-transition {
-  color: var(--color-nav-text);
+  color: var(--color-main-text);
   transition: color 0.5s ease-out;
 }
 
@@ -208,7 +209,7 @@ ul {
 
 .button-show-all {
   font-size: 2rem;
-  border: 2px solid var(--color-nav-text);
+  border: 2px solid var(--color-main-text);
   transition: background 0.5s ease-out;
 }
 
