@@ -1,0 +1,337 @@
+:root {
+  --color-background: rgb(35, 15, 35);
+  --color-nav-border: rgb(120, 50, 120);
+  --color-nav-text: rgb(200, 90, 200);
+  --color-highlight: pink;
+}
+
+/* -- base elements */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* enforce box sizing universally */
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: yellow;
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+h1,
+h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  text-align: center;
+}
+
+h1 {
+  font-size: 4rem;
+}
+
+h2 {
+  font-size: 4.2rem;
+}
+
+html {
+  box-sizing: border-box;
+  background-color: var(--color-background);
+  color: white;
+  scroll-behavior: smooth;
+  /* standardizing font size for consistency and easy measurements (1rem default of 16px becomes 10px)
+     - rem is based on the font size defined in html, or defaults to 16
+     - em on font size is based on the closest defined font size higher in the hiearchy (parent and up)
+       em on other properties is based on closest defined font size starting in current target hierarchy
+       em defaults to based on 16px if not defined
+     using rem for font, border, and padding scales consistently by using a predefined root font size
+     using default em for size detection, size limits, etc. prevents recursive scaling issues */
+  
+  /* reduce default document font size to allow 1rem unit to represent 10px:
+     [16px to 10px] > [16 * x = 10] > [x = 10 / 16] > [10 / 16 = 0.625] > font-size * 0.625 */
+  font-size: 62.5%;
+}
+
+p {
+  /* font-family: "Cambay", sans-serif; */
+  font-family: "Source Sans 3", sans-serif;
+}
+
+ul {
+  list-style: none;
+}
+
+
+/* -- nav bar */
+
+.nav {
+  display: flex;
+  justify-content: flex-start;  /* push to the left */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: black;
+  /* box-shadow: 0 2px 0 rgba(0, 0, 0, 0.4); */
+  border-bottom: 2px solid var(--color-nav-border);
+  z-index: 10;
+}
+
+.nav-list {
+  /* line entries up in a row */
+  display: flex;
+  /* margin-left: 2rem; */
+  padding-bottom: 2px;
+}
+
+.nav-list a {
+  /* ensure padding affects nav height */
+  display: block;
+  font-size: 2.2rem;
+  padding: 2rem;
+  color: var(--color-nav-text);
+  transition: all 0.3s ease-in-out;
+}
+/* add a hover push down effect to nav text */
+.nav-list a:hover {
+  transform: translateY(4px);
+}
+
+/* add a line fading in effect over nav entries */
+.nav-list li {
+  border-top: 2px solid black;
+  margin-bottom: 2px;
+  transition: border 0.3s ease-in-out;
+}
+.nav-list li:hover {
+  border-top: 2px solid var(--color-highlight);
+}
+
+
+/* -- about section */
+
+.about-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-color: #000;
+  background-image: linear-gradient(50deg, #3a3d40 0%, var(--color-background) 100%);
+}
+
+.about-section > p {
+  font-size: 2rem;
+  text-align: center;
+  /* font-weight: 500; */
+  /* font-style: italic; */
+  /* color: var(--main-red); */
+}
+
+
+/* -- projects section */
+
+/* responsive grid */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-gap: 4rem;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  margin-bottom: 6rem;
+}
+
+.projects-section {
+  text-align: center;
+  padding: 10rem 2rem;
+  /* ensure jump link travels to top of section; -4px to account for nav bar border/margin */
+  margin-top: calc(-7.6rem - 4px);
+}
+
+.projects-section-header {
+  max-width: 600px;
+  margin: 0 auto 6rem auto;
+  border-bottom: 0.2rem solid white;
+}
+
+.project {
+  background: black;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  border-radius: 2px;
+  border: 2px solid teal;
+}
+
+/* give project text brackets a color transition on hover */
+.project:hover .color-transition {
+  color: pink;
+}
+
+.color-transition {
+  color: var(--color-nav-text);
+  transition: color 0.5s ease-out;
+}
+
+.project-image {
+  height: calc(100% - 7rem);
+  width: 100%;
+  object-fit: cover;
+}
+
+.project img {
+  display: block;
+  width: 100%;
+}
+
+.project-title {
+  font-size: 2rem;
+  padding: 2rem 0.5rem;
+}
+
+
+/* -- projects button */
+
+.button {
+  display: inline-block;
+  padding: 1rem 2rem;
+  border-radius: 2px;
+}
+
+.button-show-all:hover {
+  background: var(--color-nav-text);
+}
+
+.button-show-all {
+  font-size: 2rem;
+  border: 2px solid var(--color-nav-text);
+  transition: background 0.5s ease-out;
+}
+
+
+/* contacts */
+
+.contact-section {
+  display: flex;
+  /* stack the contacts intro phrase and links */
+  flex-direction: column;
+  /* center vertically */
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 80vh;
+}
+
+.contact-links {
+  background-color: black;
+  border: 1px solid var(--color-highlight);
+  display: flex;
+  /* center horizontally */
+  justify-content: center;
+  width: 100%;
+  margin-top: 4rem;
+  flex-wrap: wrap;
+  padding: 1rem 0;
+}
+
+.contact-links a {
+  width: 12rem;
+}
+
+.contact-image {
+  display: flex;
+  justify-content: center;
+  height: 5rem;
+  border-radius: 5px;
+}
+
+.contact-details {
+  font-size: 2.4rem;
+  text-shadow: 2px 2px 1px #1f1f1f;
+  transition: transform 0.3s ease-out;
+}
+
+.contact-details:hover {
+  transform: translateY(-5px);
+}
+
+
+/* footer */
+
+footer {
+  font-weight: 300;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 2rem;
+  background: black;
+  border-top: 2px solid var(--color-nav-border);
+}
+
+footer > p {
+  color: var(--color-highlight);
+  font-family: 'Cambay', sans-serif;
+  text-align: center;
+  margin: 1rem;
+}
+
+
+/* -- queries */
+
+/* at 1200px or lower... (1200 / default font size of 16px = 750px = 75em */
+@media (max-width: 75em) {
+  html {
+    font-size: 60%;
+  }
+}
+
+/* at 980px or lower... (980 / 16 = 612.5 = 61.25em) */
+@media (max-width: 61.25em) {
+  html {
+    font-size: 58%;
+  }
+}
+
+/* at 460px or lower... (460 / 16 = 287.5 = 28.75em) */
+@media (max-width: 28.75em) {
+  html {
+    font-size: 55%;
+  }
+
+  /* center nav entries */
+  .nav {
+    justify-content: center;
+  }
+
+  .nav-list {
+    margin: 0 1rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* .projects-section {
+    padding: 6rem 1rem;
+  } */
+
+  .contact-section-header > h2 {
+    font-size: 4rem;
+  }
+
+  .projects-section-header {
+    font-size: 4rem;
+  }
+}
