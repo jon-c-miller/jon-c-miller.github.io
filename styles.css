@@ -174,7 +174,7 @@ ul {
 
 /* give project text brackets a color transition on hover */
 .project:hover .color-transition {
-  color: var(--color-highlight);
+  color: var(--color-nav-border);
 }
 
 .color-transition {
