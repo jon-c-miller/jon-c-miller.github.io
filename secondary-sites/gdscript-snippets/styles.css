@@ -10,6 +10,7 @@
 * {
   margin: 0;
   padding: 0;
+  /* border: 1px solid grey; */
 }
 
 article li {
@@ -167,7 +168,7 @@ footer > p {
 
 @media (prefers-reduced-motion: no-preference) {
   * {
-  /* scroll-behavior: smooth; */
+    scroll-behavior: smooth;
   }
 }
 
@@ -191,6 +192,9 @@ footer > p {
 
   /* account for sticky navbar, pushing links down by its height */
   .main-section {
+    padding-top: var(--height-mini-header);
+    margin-top: -var(--height-mini-header);
+  }
 
   .nav-header {
     text-align: center;
