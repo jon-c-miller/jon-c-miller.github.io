@@ -189,7 +189,7 @@ footer > p {
   }
 
   /* account for sticky navbar, pushing links down by its height */
-  .main-section {
+  .main-section, .title-section {
     padding-top: var(--height-mini-header);
     margin-top: 0;
     /* give each section a full screen height */
