@@ -85,7 +85,6 @@ html {
   position: fixed;
   top: 0;
   left: 0;
-  min-width: 250px;
   width: 260px;
   height: 100%;
   border-right: solid;
@@ -136,11 +135,16 @@ html {
 
 /* -- footer */
 
+.top-border-1px {
+  
+}
+
 footer {
   font-weight: 300;
   padding: 2rem;
   background: black;
-  border-top: 2px solid #f0c38f;
+  border-top: 1px solid #f0c38f;
+  margin-left: 260px;
 }
 
 footer > p {
@@ -155,7 +159,7 @@ footer > p {
 
 @media (prefers-reduced-motion: no-preference) {
   * {
-  scroll-behavior: smooth;
+  /* scroll-behavior: smooth; */
   }
 }
 
@@ -184,11 +188,15 @@ footer > p {
   #main-doc {
     position: relative;
     margin-left: 0px;
-}
+  }
 
   /* account for sticky navbar, pushing links down by its height */
   .main-section {
     padding-top: 191px;
     margin-top: -191px;
+  }
+
+  footer {
+    margin-left: 0;
   }
 }
