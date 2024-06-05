@@ -1,0 +1,434 @@
+:root {
+  --color-default: rgb(155, 120, 125);
+  --color-text-highlight: rgb(255, 213, 220);
+  --color-section-header: rgb(190, 90, 190);
+  --color-divider: rgb(115, 90, 95);
+  --color-phrase: rgb(200, 160, 170);
+  --dancing-script-size: 1.3rem;
+  --oswald-size: 1.1rem;
+  --tangerine-size: 1.8rem;
+}
+
+/* -- base elements */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* align an element to bottom right
+.container {
+  display: flex;
+  height: 5rem;
+}
+
+.element {
+  width: 100%;
+  text-align: right;
+  /* push to bottom 
+  align-self: flex-end;
+}
+*/
+
+html {
+  background-color: rgb(25, 40, 40);
+  color: var(--color-default);
+}
+
+p {
+  color: var(--color-phrase);
+  line-height: 2rem;
+  font-family: "Ubuntu", sans-serif;
+}
+
+section {
+  margin: 4rem;
+}
+
+
+/* -- nav and top */
+
+.header {
+  position: relative;
+  margin-right: 4rem;
+  margin-left: -1px;
+  top: 0.7rem;
+}
+
+.header p {
+  border: 1px solid var(--color-default);
+  color: var(--color-text-highlight);
+  font-size: 1.3rem;
+  font-weight: 300;
+  padding: 0 2rem 0 4rem;
+}
+
+.links-column {
+  position: fixed;
+  width: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  right: 0.7rem;
+  top: 0.7rem;
+}
+
+#navlink-code .font-name {
+  padding-top: 0.2rem;
+  color: var(--color-phrase);
+}
+
+.nav-code,
+.nav-fonts {
+  font-family: Ubuntu, sans-serif;
+  font-size: 0.75rem;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid var(--color-default);
+  padding: 0.4rem 0 0.4rem 0;
+  border-radius: 5%;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.nav-code:hover,
+.nav-fonts:hover {
+  color: var(--color-section-header);
+  border: 1px solid var(--color-section-header);
+}
+
+
+/* -- main targets */
+
+.code-block {
+  /* add scroll bar on small screens and prevent unpredictable doc height changes from wrap */
+  overflow: auto;
+  text-wrap: nowrap;
+  background-color: rgb(10, 15, 15);
+  padding: 0 1rem;
+  line-height: 2.5rem;
+  font-size: 0.6rem;
+  font-family: "mono", sans-serif;
+}
+
+.divider-copy-paste {
+  width: 30%;
+  border-top: 1px solid var(--color-divider);
+}
+
+.divider-font {
+  margin: 1rem 0 1rem 0;
+}
+
+.divider-section {
+  width: 60%;
+  margin: 1rem 0 1rem 0;
+  border-top: 2px solid var(--color-divider);
+}
+
+.section-text {
+  color: var(--color-section-header);
+  font-family: Ubuntu, sans-serif;
+  /* ensure naving to a section pulls the section to screen top */
+  margin: -4rem 0 1rem 0;
+  padding-top: 3rem;
+  align-items: center;
+}
+
+.section-text h1 {
+  font-weight: 300;
+  font-size: 2rem;
+}
+
+.section-subtext {
+  font-family: Ubuntu, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 400;
+  line-height: 1rem;
+  margin-top: -1rem;
+}
+
+
+/* -- font demos */
+
+.font-demos-flex,
+.section-text {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: start;
+  gap: 1rem;
+}
+
+.font-demos-flex a {
+  width: 100%;
+  max-width: 550px;
+}
+
+.font-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.font-link a {
+  color: var(--color-default);
+  text-decoration: none;
+}
+
+.font-name {
+  font-family: "Fira Sans", sans-serif;
+  font-size: 0.8rem;
+  line-height: 1em;
+  padding-bottom: 0.2rem;
+}
+
+.phrase {
+  color: var(--color-phrase);
+  font-size: 1rem;
+  line-height: 1.3em;
+}
+
+.phrase:hover,
+.font-link a:hover {
+  color: var(--color-text-highlight);
+}
+
+.phrase::after {
+  content: "Focus on your goals without overthinking what you're up against.";
+}
+
+
+/* -- font grid */
+
+.font-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+  width: 100%;
+  /* ensure naving to grid pulls it to screen top */
+  min-height: 100vh;
+  margin: 0 auto;
+  background-color: black;
+  font-family: Quicksand, sans-serif;
+  border-top: solid 1px var(--color-section-header);
+}
+
+.font-grid p {
+  color: var(--color-phrase);
+  font-size: 2rem;
+  text-align: center;
+  padding: 2rem 4rem;
+}
+
+
+/* -- footer */
+
+footer {
+  font-weight: 300;
+  display: flex;
+  justify-content: center;
+  padding: 2rem 0 2rem 0;
+  background: black;
+  border-top: 1px solid var(--color-section-header);
+}
+
+footer > p {
+  color: var(--color-section-header);
+  font-family: 'Cambay', sans-serif;
+}
+
+
+/* queries */
+
+@media (prefers-reduced-motion: no-preference) {
+  * {
+  scroll-behavior: smooth;
+  }
+}
+
+/* center content until 2 columns can be made visible (when under 1250px) */
+@media only screen and (max-width: 1250px) {
+  .divider-copy-paste {
+    width: 100%;
+  }
+
+  .divider-section {
+    margin: 0 auto;
+  }
+
+  .font-demos-flex a,
+  .font-name,
+  .header,
+  .header p {
+    text-align: center;
+  }
+
+  .font-demos-flex,
+  .section-text {
+    justify-content: center;
+  }
+
+  .font-demos-flex a {
+    max-width: 600px;
+  }
+
+  .header {
+    margin-left: 4rem;
+  }
+
+  .header p {
+    font-size: 1rem;
+    /* matches the padding + font height of right nav elements */
+    line-height: 1.65rem;
+    padding: 0;
+  }
+
+  .section-text {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  p {
+    text-align: justify;
+  }
+
+  /* handle custom font sizes for fonts that normally display a bit too small */
+  .font-grid .dancing-script {
+    font-size: calc(var(--dancing-script-size) * 1.5);
+  }
+
+  .font-grid .oswald {
+    font-size: calc(var(--oswald-size) * 2);
+  }
+
+  .font-grid .tangerine {
+    font-size: calc(var(--tangerine-size) * 2.2);
+  }
+}
+
+/* display headings as flex when 2 or more columns are visible */
+@media only screen and (min-width: 1251px) {
+  p {
+    margin-bottom: 1rem;
+  }
+
+  .header p {
+    font-size: 2rem;
+    line-height: 4.45rem;
+  }
+
+  .section-text {
+    display: block;
+  }
+
+  .section-subtext {
+    margin-top: 0;
+  }
+
+  .font-grid .tangerine {
+    font-size: calc(var(--tangerine-size) * 2.2);
+  }
+}
+
+/* only force phrase onto 2 lines when enabling 3 columns (when over 1525px) */
+@media only screen and (min-width: 1525px) {
+  .font-demos-flex .divider-font {
+    display: none;
+  }
+
+  .font-demos-flex a {
+    max-width: 450px;
+  }
+}
+
+/* reduce main title font size further on low widths */
+@media only screen and (max-width: 600px) {
+  .header p {
+    font-size: 0.9rem;
+  }
+}
+
+@media only screen and (max-width: 530px) {
+  .font-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* -- fonts */
+
+.montserrat {
+  font-family: "Montserrat", sans-serif;
+}
+
+.poppins {
+  font-family: "Poppins", sans-serif;
+}
+
+.outfit {
+  font-family: "Outfit", sans-serif;
+}
+
+.raleway {
+  font-family: "Raleway", sans-serif;
+}
+
+.oswald {
+  font-family: "Oswald", sans-serif;
+  font-size: var(--oswald-size);
+}
+
+.inter {
+  font-family: "Inter", sans-serif;
+}
+
+.lato {
+  font-family: "Lato", sans-serif;
+}
+
+.quicksand {
+  font-family: "Quicksand", sans-serif;
+}
+
+.oxygen {
+  font-family: "Oxygen", sans-serif;
+}
+
+.cambay {
+  font-family: "Cambay", sans-serif;
+}
+
+.pt-sans {
+  font-family: "PT Sans", sans-serif;
+}
+
+.source-sans-3 {
+  font-family: "Source Sans 3", sans-serif;
+}
+
+.ubuntu {
+  font-family: "Ubuntu", sans-serif;
+}
+
+.barlow {
+  font-family: "Barlow", sans-serif;
+}
+
+.fira-sans {
+  font-family: "Fira Sans", sans-serif;
+}
+
+.roboto-slab {
+  font-family: "Roboto Slab", serif;
+}
+
+.tangerine {
+  font-family: "Tangerine", cursive;
+  font-size: 1.8rem;
+  line-height: 1.5rem;
+}
+
+.dancing-script {
+  font-family: "Dancing Script", cursive;
+  font-size: 1.3rem;
+}
