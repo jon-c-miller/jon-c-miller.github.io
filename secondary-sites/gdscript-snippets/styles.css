@@ -1,3 +1,5 @@
+/* -- base elements */
+
 * {
   margin: 0;
   padding: 0;
@@ -19,6 +21,16 @@ article ul:last-of-type {
   padding-bottom: 10px;
 }
 
+html {
+  background-color: #050505;
+  color: #A9C9F9;
+  font-family: 'Open Sans', Arial, sans-serif;
+  line-height: 1.5;
+}
+
+
+/* main targets */
+
 .center {
   text-align: center;
 }
@@ -35,13 +47,6 @@ article ul:last-of-type {
   margin-bottom: 0;
 }
 
-html {
-  background-color: #050505;
-  color: #A9C9F9;
-  font-family: 'Open Sans', Arial, sans-serif;
-  line-height: 1.5;
-}
-
 #main-doc {
   position: relative;       /* keep position relative to nav bar as long as min-width is met */
   margin-left: 260px;
@@ -50,6 +55,34 @@ html {
   margin-bottom: 200px;     /* ensure that there is space at the bottom and the final content link can be fully aligned/navigated to */
   /* min-width: 400px; */
 }
+
+.no-bullets li {
+  list-style: none;
+}
+
+#official-logo {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin-top: 50px;
+  margin-bottom: -150px;
+}
+
+#official-logo img {
+  height: 70px;
+}
+
+.section-header {
+  /* margin: 10px 10px 10px 10px; */
+  text-align: left;
+  font-size: 1.5em;
+  padding-top: 10px;
+  color: #f0c38f;
+  padding-bottom: 10px;
+}
+
+
+/* -- navbar */
 
 #navbar {
   position: fixed;
@@ -103,30 +136,6 @@ html {
   color: #A9C9F9;
 }
 
-.no-bullets li {
-  list-style: none;
-}
-
-#official-logo {
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  margin-top: 50px;
-  margin-bottom: -150px;
-}
-
-#official-logo img {
-  height: 70px;
-}
-
-.section-header {
-  /* margin: 10px 10px 10px 10px; */
-  text-align: left;
-  font-size: 1.5em;
-  padding-top: 10px;
-  color: #f0c38f;
-  padding-bottom: 10px;
-}
 
 /* -- footer */
 
@@ -145,26 +154,13 @@ footer > p {
 }
 
 
+/* -- queries */
+
 @media (prefers-reduced-motion: no-preference) {
   * {
   scroll-behavior: smooth;
   }
 }
-
-/* @media only screen and (max-width: 400px) {
-  #main-doc {
-    margin-left: -10px;
-  }
-
-  code_block {
-    margin-left: -20px;
-    width: 100%;
-    padding: 15px;
-    padding-left: 10px;
-    padding-right: 45px;
-    min-width: 233px;
-  }
-} */
 
 /* requires a minimum total width; lower values will force body to clip into nav bar */
 @media only screen and (max-width: 800px) {
