@@ -55,6 +55,10 @@ html {
   padding-right: 30px;
 }
 
+.main-section, .title-section  {
+  margin-bottom: 3rem;
+}
+
 .no-bullets li { list-style: none; }
 
 #official-logo {
