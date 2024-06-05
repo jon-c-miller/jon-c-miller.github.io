@@ -173,13 +173,16 @@ footer > p {
 
 /* requires a minimum total width; lower values will force body to clip into nav bar */
 @media only screen and (max-width: 800px) {
-  /* For mobile phones: */
-  #navbar ul {
-    border: 1px solid;
-    height: 134px;
+  article li {
+    font-size: 13px;
+    margin: 1rem;
   }
 
   .arrow { display: inline; position: absolute; ; right: 1rem; }
+
+  .code_block { font-size: 11px; }
+
+  footer { margin-left: 0; }
 
   #main-doc {
     position: relative;
@@ -226,4 +229,8 @@ footer > p {
     border-bottom: 1px solid var(--color-header-borders);
     overflow: hidden;
   }
+
+  .section-header { text-align: center; }
+
+  .title-section p { padding-left: 0; }
 }
