@@ -128,6 +128,23 @@ html {
   padding-bottom: 10px;
 }
 
+/* -- footer */
+
+footer {
+  font-weight: 300;
+  padding: 2rem;
+  background: black;
+  border-top: 2px solid #f0c38f;
+}
+
+footer > p {
+  color: var(--color-highlight);
+  font-family: "Cambay", sans-serif;
+  text-align: center;
+  margin: 1rem;
+}
+
+
 @media (prefers-reduced-motion: no-preference) {
   * {
   scroll-behavior: smooth;
