@@ -194,8 +194,6 @@ nav { background-color: black; }
 
 .width-max-9rem { max-width: 9rem; }
 
-.width-max-1400 { max-width: 1400px; }
-
 .width-one-third-page { width: calc(100% / 3); }
 
 /* requires flex tag */
