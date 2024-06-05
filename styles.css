@@ -11,6 +11,7 @@
 * {
   margin: 0;
   padding: 0;
+  /* border: 1px solid grey; */
 }
 
 /* enforce box sizing universally */
@@ -186,11 +187,8 @@ ul {
   height: calc(100% - 7rem);
   width: 100%;
   object-fit: cover;
-}
-
-.project img {
-  display: block;
-  width: 100%;
+  display: flex;
+  max-height: 320px;
 }
 
 .project-title {
@@ -301,7 +299,7 @@ footer > p {
 /* at 460px or lower... (460 / 16 = 287.5 = 28.75em) */
 @media (max-width: 28.75em) {
   html {
-    font-size: 55%;
+    font-size: 50%;
   }
 
   /* center nav entries */
