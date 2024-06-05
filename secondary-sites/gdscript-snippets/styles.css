@@ -1,3 +1,9 @@
+:root {
+  --color-header-borders: #f0c38f;
+  --color-navbar: #8ff0a4;
+  --color-text: #bbd6ff;
+}
+
 /* -- base elements */
 
 * {
@@ -21,8 +27,8 @@ article ul:last-of-type {
 }
 
 html {
-  background-color: #050505;
-  color: #A9C9F9;
+  background-color: #101010;
+  color: var(--color-text);
   font-family: 'Open Sans', Arial, sans-serif;
   line-height: 1.5;
 }
@@ -37,7 +43,7 @@ html {
 .code_block {
   white-space: pre-line;
   font-family: monospace;
-  border: 1px solid #f0c38f;
+  border: 1px solid var(--color-header-borders);
   padding-bottom: 1.75em;
 }
 
@@ -74,7 +80,7 @@ html {
   text-align: left;
   font-size: 1.5em;
   padding-top: 10px;
-  color: #f0c38f;
+  color: var(--color-header-borders);
   padding-bottom: 10px;
 }
 
@@ -89,7 +95,8 @@ html {
   height: 100%;
   border-right: solid;
   border-width: 1px;
-  color: #8ff0a4;
+  color: var(--color-navbar);
+  background-color: #050505;
 }
 
 #navbar a {
@@ -97,7 +104,7 @@ html {
   padding-left: 30px;       /* add padding to text */
   padding-top: 10px;
   padding-bottom: 10px;
-  color: #8ff0a4;
+  color: var(--color-navbar);
   text-decoration: none;    /* remove underlines */
   cursor: pointer;          /* change cursor when hovered over */
 }
@@ -107,7 +114,7 @@ html {
 }
 
 #navbar li {
-  color: #8ff0a4;
+  color: var(--color-navbar);
   border-top: 1px solid;
   list-style: none;
   position: relative;
@@ -135,15 +142,11 @@ html {
 
 /* -- footer */
 
-.top-border-1px {
-  
-}
-
 footer {
   font-weight: 300;
   padding: 2rem;
   background: black;
-  border-top: 1px solid #f0c38f;
+  border-top: 1px solid var(--color-header-borders);
   margin-left: 260px;
 }
 
@@ -177,7 +180,6 @@ footer > p {
     padding: 0;
     margin: 0;
     width: 100%;
-    background-color: #080808;
     height: 191px;
     border: none;
     z-index: 1;
