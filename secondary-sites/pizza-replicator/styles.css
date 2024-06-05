@@ -65,6 +65,8 @@ footer {
   font-size: 0.8em;
 }
 
+#gallery { margin: 3rem; }
+
 #gallery img {
   max-width: 21rem;
   height: 250px;
@@ -139,6 +141,8 @@ nav { background-color: black; }
 
 .font-size-2rem { font-size: 2rem; }
 
+.gap-1rem { gap: 1rem; }
+
 .gap-2rem { gap: 2rem; }
 
 .height-300 { height: 300px; }
@@ -161,9 +165,20 @@ nav { background-color: black; }
 
 .margin-1rem { margin: 1rem; }
 
-.margin-left-right-2rem { margin: 0 2rem; }
+.margin-left-right-2rem {
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
 
-.margin-left-right-3rem { margin: 0 3rem; }
+.margin-left-right-3rem {
+  margin-left: 3rem;
+  margin-right: 3rem;
+}
+
+.margin-top-bottom-1rem {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
 
 .padding-halfrem { padding: 0.5rem; }
 
@@ -234,14 +249,17 @@ nav { background-color: black; }
 
 /* -- queries */
 
+/* at 600px-, lower font size on text, and force 1 column on prices and gallery */
 @media (max-width: 600px) {
-  .price-model { width: 80%; }
-
   #features p { font-size: 0.9rem; }
 
-  /* keep gallery margins aligned with price grid, accounting for box shadow */
-  #gallery div { margin: 4px; }
-  #gallery img { max-width: 80%; }
+  /* force gallery images to expand to margin until 2 column display, factoring in box shadow */
+  #gallery img {
+    max-width: calc(100% - 2px);
+  }
+
+  /* force price boxes to expand to margin until 3 column display */
+  .price-model { width: 100%; }
 
   #pricing > div {
     align-items: center;
@@ -249,8 +267,16 @@ nav { background-color: black; }
   }
 }
 
-@media (min-width: 601px) {
+/* at 600px+, align text left and force 2 columns on gallery */
+@media (min-width: 600px) {
   #features > div { text-align: left; }
+  #gallery img { max-width: calc(50% - (1rem + 2px)); }
+}
+
+/* keep responsiveness on reasonably extreme widths */
+@media (min-width: 2000px) {
+  /* image widths are all 1000px; forcing into 3 columns (minus the desired margin + box shadow) keeps images from scaling */
+  #gallery img { max-width: calc(100% / 3 - (2rem + 2px)); }
 }
 
 
