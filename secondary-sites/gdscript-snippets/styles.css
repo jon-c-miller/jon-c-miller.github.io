@@ -7,7 +7,6 @@
 
 article li {
   padding-top: 0.5em;
-  /* margin-left: 2.3em; */
   margin-left: 36px;        /* line bullets up with above content */
   list-style: circle;
   font-size: 15px;
@@ -53,7 +52,6 @@ html {
   padding-left: 30px;
   padding-right: 30px;
   margin-bottom: 200px;     /* ensure that there is space at the bottom and the final content link can be fully aligned/navigated to */
-  /* min-width: 400px; */
 }
 
 .no-bullets li {
@@ -73,7 +71,6 @@ html {
 }
 
 .section-header {
-  /* margin: 10px 10px 10px 10px; */
   text-align: left;
   font-size: 1.5em;
   padding-top: 10px;
@@ -177,7 +174,6 @@ footer > p {
     margin: 0;
     width: 100%;
     background-color: #080808;
-    /* max-height: 300px; */
     height: 191px;
     border: none;
     z-index: 1;
@@ -188,7 +184,6 @@ footer > p {
   #main-doc {
     position: relative;
     margin-left: 0px;
-    /* margin-top: 260px; */
 }
 
   /* account for sticky navbar, pushing links down by its height */
