@@ -312,6 +312,11 @@ footer > p {
     margin: 0 1rem;
   }
 
+  /* standardize project image heights */
+  .project-image {
+    height: 220px;
+  }
+
   .projects-grid {
     grid-template-columns: 1fr;
   }
