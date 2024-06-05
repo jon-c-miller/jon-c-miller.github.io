@@ -43,7 +43,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* border: 1px solid grey; */
+  border: 1px solid grey;
 }
 
 a {
@@ -64,8 +64,6 @@ footer {
   font-family: "Montserrat", sans-serif;
   font-size: 0.8em;
 }
-
-#gallery { margin: 3rem; }
 
 #gallery img {
   max-width: 21rem;
@@ -249,16 +247,25 @@ nav { background-color: black; }
 
 /* -- queries */
 
-/* at 600px-, lower font size on text, and force 1 column on prices and gallery */
+/* at 600px-, lower font size on text, reduce margins, and force 1 column on prices and gallery */
 @media (max-width: 600px) {
   #features p { font-size: 0.9rem; }
 
-  /* force gallery images to expand to margin until 2 column display, factoring in box shadow */
+  /* reduce side margins for small screens */
+  #hero,
+  #features,
+  #gallery,
+  #pricing {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
+  /* force gallery images to expand to container until 2 column display, factoring in box shadow */
   #gallery img {
     max-width: calc(100% - 2px);
   }
 
-  /* force price boxes to expand to margin until 3 column display */
+  /* force price boxes to expand to container until 3 column display */
   .price-model { width: 100%; }
 
   #pricing > div {
@@ -267,8 +274,8 @@ nav { background-color: black; }
   }
 }
 
-/* at 600px+, align text left and force 2 columns on gallery */
-@media (min-width: 600px) {
+/* at over 600px, align text left and force 2 columns on gallery */
+@media (min-width: 601px) {
   #features > div { text-align: left; }
   #gallery img { max-width: calc(50% - (1rem + 2px)); }
 }
