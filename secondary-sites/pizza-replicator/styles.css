@@ -1,0 +1,262 @@
+/*
+   This project uses an effect-based targetting system that changes the role of class to
+   be descriptive as to its effects. In contrast to typical styling conventions which use
+   arbitrary (but contextually appropriate) having descriptive class names
+   allows the styling structure to be understood more quickly at a glance directly from the
+   html. This allows for a more controlled formatting experience, where divs can be highly customized.
+   Ultimately, this style borrows from object-oriented programming conventions, where one
+   class should have only one responsibility, and component-based design is encouraged.
+
+   For example, by figuring out exactly which attributes are needed to horizontally
+   center an element via flex, and then defining a separate class called flex which contains
+   "display: flex" and a class called center-horizontal which contains "justify-content: center,"
+   an element with a class descriptor of "flex center-horizontal" can accomplish this quite simply.
+
+   The alternative would be to put "display: flex" and "justify-content: center" in every single
+   class css definition that needed to be centered. Figuring out the proper combination once and
+   then reusing it throughout the project is arguably much more efficient for the developer, if not
+   often from a boilerplate-reducing standpoint.
+
+   So the goal was to eliminate all usage of class in a generic or name-based usage (i.e. nav-bar,
+   container, ~section-header, etc.), either designing classes to target a single attribute or
+   accomplish a specific objective; relegating any multi-targetting almost exlusively to media queries, which
+   target a direct div child of a section id. This also has the added benefit of giving ids a purpose
+   for existing other than to be internal page link targets.
+   
+   While performance has yet to be examined vs. a more conventional styling approach, this system was
+   a lot more intuitive to work with once the majority of the classes were laid out.
+*/
+
+:root {
+  --image-height-limit: 10rem;
+  --header-height: 2.4rem;
+  --color-main-dark: #111;
+  --color-main-light: #eee;
+  --color-secondary-light: #c1c1c1;
+  --color-select: orange;
+}
+
+
+/* -- basic elements */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* border: 1px solid grey; */
+}
+
+a {
+  color: var(--color-main-light);
+  text-decoration: none;
+  line-height: 2rem;
+  transition: all 0.15s ease-in-out;
+}
+
+a:hover {
+  color: var(--color-select);
+  font-size: 1.1rem;
+}
+
+footer {
+  color: #999;
+  background-color: black;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.8em;
+}
+
+#gallery img {
+  max-width: 21rem;
+  height: 250px;
+  box-shadow: 0 0 2px 2px orange;
+}
+
+h1, h2, h3 { font-family: "Roboto Slab", serif; }
+
+html {
+  color: var(--color-main-light);
+  background-color: var(--color-main-dark);
+  font-family: "Montserrat", sans-serif;
+  margin: 0 auto;
+  scroll-behavior: smooth;
+}
+
+img {
+  height: var(--image-height-limit);
+  width: 100%;
+  object-fit: cover;
+}
+
+nav { background-color: black; }
+
+
+/* -- effect-based rules */
+
+/* requires flex tag */
+.align-right { justify-content: flex-end; }
+
+.align-under-header {
+  margin: calc(-var(--header-height) - 1rem);
+  padding-top: calc(var(--header-height) + 1rem);
+}
+
+.bold-uppercase {
+  padding: 15px 0;
+  width: 100%;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.border-grey { border: 1px solid var(--color-secondary-light); }
+
+.border-grey-rounded {
+  border: 2px solid var(--color-secondary-light);
+  border-radius: 8px;
+}
+
+.border-red { border: 1px solid red; }
+
+.border-top-bottom {
+  border-top: 1px solid var(--color-main-dark);
+  border-bottom: 1px solid var(--color-main-light);
+}
+
+.center-text { text-align: center; }
+
+/* requires flex tag */
+.center-horizontal { justify-content: center; }
+
+/* requires flex tag */
+.center-vertical { align-items: center; }
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex { display: flex; }
+
+.font-size-2rem { font-size: 2rem; }
+
+.gap-2rem { gap: 2rem; }
+
+.height-300 { height: 300px; }
+
+.height-2rem { height: 2rem; }
+
+.height-2-4rem { height: 2.4rem; }
+
+.height-3rem { height: 3rem; }
+
+.height-5rem { height: 5rem; }
+
+.height-12rem { height: 12rem; }
+
+.height-cover-view { height: calc(80vh - var(--image-height-limit) - var(--header-height)); }
+
+.height-100-percent { height: 100%; }
+
+.hidden { display: none; }
+
+.margin-1rem { margin: 1rem; }
+
+.margin-left-right-2rem { margin: 0 2rem; }
+
+.margin-left-right-3rem { margin: 0 3rem; }
+
+.padding-halfrem { padding: 0.5rem; }
+
+.padding-1rem { padding: 1rem; }
+
+/* requires flex tag */
+.spacing-around { justify-content: space-around; }
+
+/* swaps the effects of center-vertical and center-horizontal */
+.stack-children { flex-direction: column; }
+
+.sticky {
+  position: sticky;
+  top: 0;
+  /* requires container to not have overflow hidden/auto */
+  /* only works as long as container's scope is within the viewport */
+}
+
+.vertical-spacing-1rem { height: 1rem; }
+
+.vertical-spacing-2rem { height: 2rem; }
+
+.width-5rem { width: 5rem; }
+
+.width-10rem { width: 10rem; }
+
+.width-100percent { width: 100%; }
+
+.width-max-9rem { max-width: 9rem; }
+
+.width-max-1400 { max-width: 1400px; }
+
+.width-one-third-page { width: calc(100% / 3); }
+
+/* requires flex tag */
+.wrap { flex-wrap: wrap; }
+
+
+/* -- buttons */
+
+.button {
+  color: var(--color-main-light);
+  width: 100%;
+  height: 40px;
+  font-size: 1em;
+  font-weight: 900;
+  text-transform: uppercase;
+  border: 2px var(--color-select) solid;
+  background: transparent;
+  cursor: pointer;
+}
+
+.button:hover {
+  color: #000;
+  background-color: var(--color-select);
+  transition: all 0.5s ease-in-out;
+}
+
+#hero input[type='submit'] {
+  background-color: var(--color-select);
+  border: 1px solid var(--color-select)
+}
+
+#hero input[type='submit']:hover {
+  color: var(--color-main-light);
+  background-color: black;
+  transition: all 0.3s ease-in-out;
+}
+
+
+/* -- queries */
+
+@media (max-width: 600px) {
+  .price-model { width: 80%; }
+
+  #features p { font-size: 0.9rem; }
+
+  /* keep gallery margins aligned with price grid, accounting for box shadow */
+  #gallery div { margin: 4px; }
+  #gallery img { max-width: 80%; }
+
+  #pricing > div {
+    align-items: center;
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 601px) {
+  #features > div { text-align: left; }
+}
+
+
+/* -- fonts */
+
+@import 'https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900';
+@import 'https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900';
