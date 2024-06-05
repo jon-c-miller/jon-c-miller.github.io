@@ -140,9 +140,15 @@ html {
   font-size: 1.5em;
 }
 
-.nav-link,
 .reference-link {
+  text-decoration: none;
+  font-weight: 700;
   color: #A9C9F9;
+  transition: color 0.3s ease-in-out;
+}
+
+.reference-link:hover {
+  color: var(--color-header-borders);
 }
 
 
