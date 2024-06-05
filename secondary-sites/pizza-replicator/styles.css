@@ -278,9 +278,3 @@ nav { background-color: black; }
   /* image widths are all 1000px; forcing into 3 columns (minus the desired margin + box shadow) keeps images from scaling */
   #gallery img { max-width: calc(100% / 3 - (2rem + 2px)); }
 }
-
-
-/* -- fonts */
-
-@import 'https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900';
-@import 'https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900';
