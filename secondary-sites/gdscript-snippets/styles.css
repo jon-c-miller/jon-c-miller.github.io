@@ -19,13 +19,9 @@ article li {
   font-size: 15px;
 }
 
-article p {
-  padding-left: 1.5em;
-}
+article p { padding-left: 1.5em; }
 
-article ul:last-of-type {
-  padding-bottom: 10px;
-}
+article ul:last-of-type { padding-bottom: 10px; }
 
 html {
   background-color: #101010;
@@ -37,9 +33,7 @@ html {
 
 /* main targets */
 
-.center {
-  text-align: center;
-}
+.center { text-align: center; }
 
 .code_block {
   white-space: pre-line;
@@ -61,9 +55,7 @@ html {
   margin-bottom: 200px;     /* ensure that there is space at the bottom and the final content link can be fully aligned/navigated to */
 }
 
-.no-bullets li {
-  list-style: none;
-}
+.no-bullets li { list-style: none; }
 
 #official-logo {
   display: flex;
@@ -73,9 +65,7 @@ html {
   margin-bottom: -150px;
 }
 
-#official-logo img {
-  height: 70px;
-}
+#official-logo img { height: 70px; }
 
 .section-header {
   text-align: left;
