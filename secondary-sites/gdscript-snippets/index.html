@@ -155,6 +155,7 @@
         <article>
           <p class="code_block">
             # node that listens for signals (to react when signal fires)
+            extends Node
 
             func _ready() -> void:
             &emsp; events.input_fire.connect(fire)
@@ -181,7 +182,6 @@
 
 
             # node that defines signals (an autoload named 'events')
-
             extends Node
 
             signal input_fire
@@ -212,12 +212,17 @@
             &emsp; # get trajectory and point the turret towards it
             &emsp; turret.look_at(turret.global_position + launch_solution, Vector3.UP)
             
-            &emsp; # instantiate projectile, set it as a child of turrent (must be a node3d), and launch
+            &emsp; # instantiate projectile, set it as a child of turret (ideally node3d), and launch
             &emsp; var projectile = projectileS.instantiate() as RigidBody3D
             &emsp; projectiles.add_child(projectile)
             &emsp; projectile.set_velocity(launch_solution)
           </p>
-          <ul><li>note that the projectile will launch from the local position of the node it is added as a child to</li></ul>
+          <ul>
+            <li>note that the projectile will launch from the local position of the node it is added as a child to</li>
+            <li>the object holding instantiated projectiles must be Node3D or lower in the Node hierarchy, as the base Node
+              class exists outside of 3D space and will position everything at Vector3.ZERO
+            </li>
+          </ul>
         </article>
       </section>
 
