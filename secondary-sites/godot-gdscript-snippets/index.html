@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>godot gdscript snippets</title>
+    <link href="styles.css" rel="stylesheet" />
+  </head>
+  <body>
+    <nav id="navbar">
+      <header class="nav-header">navigation</header>
+      <ul>
+        <li><a class="nav-link" href="#section_one">pausing the game</a></li>
+        <li><a class="nav-link" href="#section_two">adding inspector headers</a></li>
+        <li><a class="nav-link" href="#section_three">moving via position</a></li>
+        <li><a class="nav-link" href="#section_four">moving via colliders</a></li>
+        <li><a class="nav-link" href="#section_five">setting up signals</a></li>
+        <li><a class="nav-link" href="#section_six">launching a projectile</a></li>
+        <li><a class="nav-link" href="#final_section">more</a></li>
+      </ul>
+    </nav>
+
+    <main id="main-doc">
+
+      <section class="title-section">
+        <header class="section-header">
+          <article class="center no-top-padding">
+            <p>godot useful gdscript snippets</p>
+          </article>
+        </header>
+      </section>
+
+      <!-- pausing the game -->
+      <section id="section_one" class="main-section">
+        <header class="section-header">pausing the game</header>
+        <article>
+          <p class="code_block">
+            get_tree().paused = true
+          </p>
+          <ul><li>setting the node > process mode dropdown to WhenPaused is one way to handle active state for use with a pause menu</li></ul>
+        </article>
+      </section>
+
+      <!-- adding inspector headers -->
+      <section id="section_two" class="main-section">
+        <header class="section-header">adding inspector headers</header>
+        <article>
+          
+          <p class="code_block">
+            # a header below the default component header, which normally shows the script filename
+            @export_category("Top Header")
+
+            # a collapsible category containing all fields until the next defined category
+            @export_group("Collapsible Dropdown/Group")
+            @export var my_name: String = "Chris"
+            @export var my_age: int = 26
+          </p>
+          <ul><li>organizing the way inspector fields are grouped is a great way to make scene tweaking easier</li></ul>
+        </article>
+      </section>
+
+      <!-- moving via position -->
+      <section id="section_three" class="main-section">
+        <header class="section-header">moving via position</header>
+        <article>
+          <p class="code_block">
+            var speed: float = 5.0
+
+            func _process(delta) -> void:
+	          &emsp; # get movement input
+	          &emsp; var direction: Vector2 = Input.get_vector("left", "right", "up", "down")
+	          
+            &emsp; # print the direction and effect movement
+            &emsp; print(direction)
+	          &emsp; position += direction * speed * delta
+          </p>
+          <ul>
+            <li>don't forget to map your input keys in project settings</li>
+            <li>note that moving manually via position bypasses collision</li>
+          </ul>
+        </article>
+      </section>
+
+      <!-- moving via colliders -->
+      <section id="section_four" class="main-section">
+        <header class="section-header">moving via colliders</header>
+        <article>
+          <p class="code_block">
+            var direction: Vector3 = Vector3.FORWARD
+            var speed: float = 3.0
+
+            ...
+
+            velocity = direction * speed
+            move_and_slide()
+          </p>
+          <ul>
+            <li><code>move_and_slide()</code> takes effect when velocity is set/updated</li>
+            <li>collisions only work properly when letting the engine move the object via velocity</li>
+            <li>assigning values to an object's position manually bypasses any collisions</li>
+            <li>affected object moves based on velocity or slides along adjacent colliders if colliding</li>
+            <li>velocity default is 0</li>
+            <li><code>move_and_slide()</code> returns true if there was a collision</li>
+            <li>an object with higher force (based on mass, higher velocity, etc.) will push one with lower</li>
+          </ul>
+        </article>
+      </section>
+
+      <!-- setting up signals -->
+      <section id="section_five" class="main-section">
+        <header class="section-header">setting up signals</header>
+        <article>
+          <p class="code_block">
+            # node that listens for signals (to react when signal fires)
+
+            func _ready() -> void:
+            &emsp; events.input_fire.connect(fire)
+            &emsp; events.input_jump.connect(jump)
+
+            func fire() -> void:
+            &emsp; # fire martian ray
+
+            func jump() -> void:
+            &emsp; # activate space boots
+
+
+            # node that emits signals (upon some condition, etc.)
+            extends Node
+
+            @export var fire_key: String = "fire"
+            @export var jump_key: String = "jump"
+
+            func _process(_delta) -> void:
+            &emsp; if (Input.is_action_just_pressed(fire_key)):
+            &emsp; &emsp; input_fire.emit()
+            &emsp; elif (Input.is_action_just_pressed(jump_key)):
+            &emsp; &emsp; input_jump.emit()
+
+
+            # node that defines signals (an autoload named 'events')
+
+            extends Node
+
+            signal input_fire
+            signal input_jump
+          </p>
+          <ul>
+            <li>defining signals separately from the emitter in an autoload offers the greatest potential for decoupling in the project</li>
+            <li>signals can also be defined in an instanced node, but a reference will be needed for the listener/emitter node(s)</li>
+          </ul>
+        </article>
+      </section>
+
+      <!-- launching a projectile -->
+      <section id="section_six" class="main-section">
+        <header class="section-header">launching a projectile</header>
+        <article>
+          <p class="code_block">
+            # a cosmetic node that gives feedback on the direction of the travel path
+            @export var turret: Node3D
+
+            # holder to organize; must be at the same position (ideally as a child) as turret
+            @export var projectiles: Node3D
+
+            # scene to instantiate for projectile
+            var projectileS = preload("res://scenes/projectile.tscn")
+
+            func launch(launch_solution: Vector3) -> void:
+            &emsp; # get trajectory and point the turret towards it
+            &emsp; turret.look_at(turret.global_position + launch_solution, Vector3.UP)
+            
+            &emsp; # instantiate projectile, set it as a child of turrent (must be a node3d), and launch
+            &emsp; var projectile = projectileS.instantiate() as RigidBody3D
+            &emsp; projectiles.add_child(projectile)
+            &emsp; projectile.set_velocity(launch_solution)
+          </p>
+          <ul><li>note that the projectile will launch from the local position of the node it is added as a child to</li></ul>
+        </article>
+      </section>
+
+      <!-- more -->
+      <section id="final_section" class="main-section">
+        <header class="section-header">more on the official reference site!</header>
+        <article>
+          <p>
+            This was just a taste of the many ways gdscript can be utilized in projects.
+            Check out the official gdscript
+            <a class="reference-link"
+              href="https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_basics.html"
+              target="_blank">
+              reference site
+            </a>
+            for basic syntax and other common snippets.
+          </p>
+          <a id="official-logo" href="https://docs.godotengine.org/en/stable/index.html">
+            <img src="content/logo.svg">
+          </a>
+          
+        </article>
+      </section>
+    </main>
+  </body>
+</html>

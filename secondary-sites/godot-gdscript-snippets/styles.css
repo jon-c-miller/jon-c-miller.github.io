@@ -1,0 +1,186 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+article li {
+  padding-top: 0.5em;
+  /* margin-left: 2.3em; */
+  margin-left: 36px;        /* line bullets up with above content */
+  list-style: circle;
+  font-size: 15px;
+}
+
+article p {
+  padding-left: 1.5em;
+}
+
+article ul:last-of-type {
+  padding-bottom: 10px;
+}
+
+.center {
+  text-align: center;
+}
+
+.code_block {
+  white-space: pre-line;
+  font-family: monospace;
+  border: 1px solid #f0c38f;
+  padding-bottom: 1.75em;
+}
+
+.code_block p {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-bottom: 0;
+}
+
+html {
+  background-color: #050505;
+  color: #A9C9F9;
+  font-family: 'Open Sans', Arial, sans-serif;
+  line-height: 1.5;
+}
+
+#main-doc {
+  position: relative;       /* keep position relative to nav bar as long as min-width is met */
+  margin-left: 260px;
+  padding-left: 30px;
+  padding-right: 30px;
+  margin-bottom: 200px;     /* ensure that there is space at the bottom and the final content link can be fully aligned/navigated to */
+  /* min-width: 400px; */
+}
+
+#navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 250px;
+  width: 260px;
+  height: 100%;
+  border-right: solid;
+  border-width: 1px;
+  color: #8ff0a4;
+}
+
+#navbar a {
+  display: block;           /* ensure elements respect padding */
+  padding-left: 30px;       /* add padding to text */
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: #8ff0a4;
+  text-decoration: none;    /* remove underlines */
+  cursor: pointer;          /* change cursor when hovered over */
+}
+
+#navbar a:hover {
+  color: #c3ffd0;
+}
+
+#navbar li {
+  color: #8ff0a4;
+  border-top: 1px solid;
+  list-style: none;
+  position: relative;
+  width: 100%;
+}
+
+#navbar ul {
+  height: 80%;              /* limit the navigation height, providing a scroll bar */
+  padding: 0;               /* push elements flush to the left */
+  overflow-y: auto;
+  overflow-x: hidden; 
+}
+
+.nav-header {
+  margin: 10px 10px 10px 10px;
+  text-align: left;
+  font-size: 1.5em;
+}
+
+.nav-link,
+.reference-link {
+  color: #A9C9F9;
+}
+
+.no-bullets li {
+  list-style: none;
+}
+
+#official-logo {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin-top: 50px;
+  margin-bottom: -150px;
+}
+
+#official-logo img {
+  height: 70px;
+}
+
+.section-header {
+  /* margin: 10px 10px 10px 10px; */
+  text-align: left;
+  font-size: 1.5em;
+  padding-top: 10px;
+  color: #f0c38f;
+  padding-bottom: 10px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  * {
+  scroll-behavior: smooth;
+  }
+}
+
+/* @media only screen and (max-width: 400px) {
+  #main-doc {
+    margin-left: -10px;
+  }
+
+  code_block {
+    margin-left: -20px;
+    width: 100%;
+    padding: 15px;
+    padding-left: 10px;
+    padding-right: 45px;
+    min-width: 233px;
+  }
+} */
+
+/* requires a minimum total width; lower values will force body to clip into nav bar */
+@media only screen and (max-width: 800px) {
+  /* For mobile phones: */
+  #navbar ul {
+    border: 1px solid;
+    height: 134px;
+  }
+
+  #navbar {
+    position: sticky;
+    top: 0;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    background-color: #080808;
+    /* max-height: 300px; */
+    height: 191px;
+    border: none;
+    z-index: 1;
+    border-bottom: 2px solid;
+    overflow: hidden;
+  }
+
+  #main-doc {
+    position: relative;
+    margin-left: 0px;
+    /* margin-top: 260px; */
+}
+
+  /* account for sticky navbar, pushing links down by its height */
+  .main-section {
+    padding-top: 191px;
+    margin-top: -191px;
+  }
+}
