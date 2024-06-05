@@ -194,6 +194,7 @@ ul {
 .project-title {
   font-size: 2rem;
   padding: 2rem 0.5rem;
+  border-top: 1px solid var(--color-nav-border);
 }
 
 
