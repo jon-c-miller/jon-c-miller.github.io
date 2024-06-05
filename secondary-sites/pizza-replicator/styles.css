@@ -249,6 +249,9 @@ nav { background-color: black; }
 
 /* at 600px-, lower font size on text, reduce margins, and force 1 column on prices and gallery */
 @media (max-width: 600px) {
+  #features h2 { font-size: 1.5rem; }
+  #features h3 { font-size: 1.1rem; }
+
   #features p { font-size: 0.9rem; }
 
   /* reduce side margins for small screens */
@@ -265,13 +268,15 @@ nav { background-color: black; }
     max-width: calc(100% - 2px);
   }
 
-  /* force price boxes to expand to container until 3 column display */
-  .price-model { width: 100%; }
+  #hero h3 { font-size: 1rem; }
 
   #pricing > div {
     align-items: center;
     flex-direction: column;
   }
+
+  /* force price boxes to expand to container until 3 column display */
+  .price-model { width: 100%; }
 }
 
 /* at over 600px, align text left and force 2 columns on gallery */
