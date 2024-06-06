@@ -1,5 +1,5 @@
 /*
-   This project uses an effect-based targetting system that changes the role of class to
+   This project uses an effect-based targeting system that changes the role of class to
    be descriptive as to its effects. In contrast to typical styling conventions which use
    arbitrary (but contextually appropriate) having descriptive class names
    allows the styling structure to be understood more quickly at a glance directly from the
@@ -19,7 +19,7 @@
 
    So the goal was to eliminate all usage of class in a generic or name-based usage (i.e. nav-bar,
    container, ~section-header, etc.), either designing classes to target a single attribute or
-   accomplish a specific objective; relegating any multi-targetting almost exlusively to media queries, which
+   accomplish a specific objective; relegating any multi-targeting almost exlusively to media queries, which
    target a direct div child of a section id. This also has the added benefit of giving ids a purpose
    for existing other than to be internal page link targets.
    
