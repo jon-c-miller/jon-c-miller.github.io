@@ -16,20 +16,6 @@
   padding: 0;
 }
 
-/* align an element to bottom right
-.container {
-  display: flex;
-  height: 5rem;
-}
-
-.element {
-  width: 100%;
-  text-align: right;
-  /* push to bottom 
-  align-self: flex-end;
-}
-*/
-
 html {
   background-color: rgb(25, 40, 40);
   color: var(--color-default);
@@ -238,7 +224,7 @@ footer > p {
 }
 
 
-/* queries */
+/* -- queries */
 
 @media (prefers-reduced-motion: no-preference) {
   * {
@@ -357,70 +343,43 @@ footer > p {
 
 /* -- fonts */
 
-.montserrat {
-  font-family: "Montserrat", sans-serif;
+.barlow { font-family: "Barlow", sans-serif; }
+
+.cambay { font-family: "Cambay", sans-serif; }
+
+.dancing-script {
+  font-family: "Dancing Script", cursive;
+  font-size: 1.3rem;
 }
 
-.poppins {
-  font-family: "Poppins", sans-serif;
-}
+.fira-sans { font-family: "Fira Sans", sans-serif; }
 
-.outfit {
-  font-family: "Outfit", sans-serif;
-}
+.inter { font-family: "Inter", sans-serif; }
 
-.raleway {
-  font-family: "Raleway", sans-serif;
-}
+.lato { font-family: "Lato", sans-serif; }
 
-.oswald {
+.montserrat { font-family: "Montserrat", sans-serif; }
+
+.oswald { 
   font-family: "Oswald", sans-serif;
   font-size: var(--oswald-size);
 }
 
-.inter {
-  font-family: "Inter", sans-serif;
-}
+.outfit { font-family: "Outfit", sans-serif; }
 
-.lato {
-  font-family: "Lato", sans-serif;
-}
+.oxygen { font-family: "Oxygen", sans-serif; }
 
-.quicksand {
-  font-family: "Quicksand", sans-serif;
-}
+.poppins { font-family: "Poppins", sans-serif; }
 
-.oxygen {
-  font-family: "Oxygen", sans-serif;
-}
+.pt-sans { font-family: "PT Sans", sans-serif; }
 
-.cambay {
-  font-family: "Cambay", sans-serif;
-}
+.quicksand { font-family: "Quicksand", sans-serif; }
 
-.pt-sans {
-  font-family: "PT Sans", sans-serif;
-}
+.raleway { font-family: "Raleway", sans-serif; }
 
-.source-sans-3 {
-  font-family: "Source Sans 3", sans-serif;
-}
+.roboto-slab { font-family: "Roboto Slab", serif; }
 
-.ubuntu {
-  font-family: "Ubuntu", sans-serif;
-}
-
-.barlow {
-  font-family: "Barlow", sans-serif;
-}
-
-.fira-sans {
-  font-family: "Fira Sans", sans-serif;
-}
-
-.roboto-slab {
-  font-family: "Roboto Slab", serif;
-}
+.source-sans-3 { font-family: "Source Sans 3", sans-serif; }
 
 .tangerine {
   font-family: "Tangerine", cursive;
@@ -428,7 +387,4 @@ footer > p {
   line-height: 1.5rem;
 }
 
-.dancing-script {
-  font-family: "Dancing Script", cursive;
-  font-size: 1.3rem;
-}
+.ubuntu { font-family: "Ubuntu", sans-serif; }
